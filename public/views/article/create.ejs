@@ -6,6 +6,36 @@
     <body>
         
         <h1>all articles created</h1>
+        <div>Title:
+              <input type="text id="title"/>
+        </div>
+      
+       <div>Content: 
+            <textarea id="content"></textarea>
+       </div<br>>
+        <button id="submit">Submit</button>
+        
+        <script src="/lib/vendor/jquery/dist/jquery.min.js"></script>
+        <script>
+        var article={title: "",content: ""};
+        $("#title").change(function()
+        {
+        article.title=$("#title").vol();
+        
+        });
+        $("#submit").click(function(){
+        $.ajax({
+        method: "POST",
+        url: "/api/articles"}
+        
+        ).done(function(response){
+        
+        console.log(response);
+        
+        });
+        
+        });
+        </script>
         
     </body>
     
