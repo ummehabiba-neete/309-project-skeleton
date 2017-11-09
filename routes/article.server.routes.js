@@ -11,10 +11,10 @@ module.exports = function(app){
 	.get(articles.all);
   //.delete(users.requiresLogin, articles.delete);
   
-  app.route('/articles/:edit')
+  app.route('/articles/edit/:articleId')
 	.get(articles.edit);
   //.delete(users.requiresLogin, articles.delete);
-   app.route('/articles/view')
+   app.route('/articles/:articleId')
 	.get(articles.view)
 	//.put(users.requiresLogin, articles.update);
 	 
@@ -27,7 +27,7 @@ module.exports = function(app){
 //	.put(users.requiresLogin, articles.update);
 	 
  
-		 app.route('/api/articles/edit/"articleId')
+		 app.route('/api/articles/edit/:articleId')
 	.get(articles.read)
 		.put(users.requiresLogin, articles.delete);
 

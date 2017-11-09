@@ -14,8 +14,7 @@ exports.all = function(req, res) {
   			});
     } else {
       console.log("api called");
-      res.render('./..public/views/article/all.ejs')
-      	res.render('./../all.ejs', {
+      	res.render('./../public/views/article/all.ejs', {
 		user: req.user || null,
 		request: req,
 		articles:data
@@ -26,29 +25,22 @@ exports.all = function(req, res) {
  
    
 
-exports.all = function(req, res) {
-	res.render('./../all.ejs', {
-		user: req.user || null,
-		request: req
-	});
-};
-
  exports.new = function(req, res) {
-	res.render('./../create.ejs', {
+	res.render('./../public/views/article/create.ejs', {
 		user: req.user || null,
 		request: req
 	});
 };
 
  exports.edit = function(req, res) {
-	res.render('./../edit.ejs', {
+	res.render('./../public/views/articles/edit.ejs', {
 		user: req.user || null,
 		request: req
 	});
 };
 
  exports.view = function(req, res) {
-	res.render('./../view.ejs', {
+	res.render('./../public/views/articles/view.ejs', {
 		user: req.user || null,
 		request: req
 	});

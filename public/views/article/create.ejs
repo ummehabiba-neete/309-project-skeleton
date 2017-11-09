@@ -7,7 +7,7 @@
         
         <h1>all articles created</h1>
         <div>Title:
-              <input type="text id="title"/>
+              <input type="text" id="title"/>
         </div>
       
        <div>Content: 
@@ -15,18 +15,25 @@
        </div<br>>
         <button id="submit">Submit</button>
         
-        <script src="/lib/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script>
         var article={title: "",content: ""};
         $("#title").change(function()
         {
-        article.title=$("#title").vol();
+        article.title=$("#title").val();
+        
+        });
+        $("#content").change(function()
+        {
+        article.content=$("#content").val();
         
         });
         $("#submit").click(function(){
+            console.log("test");
         $.ajax({
         method: "POST",
-        url: "/api/articles"}
+        url: "/api/articles",data:article},
+        
         
         ).done(function(response){
         
