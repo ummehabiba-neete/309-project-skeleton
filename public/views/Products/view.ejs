@@ -1,0 +1,14 @@
+<title>Product</title>
+     </head>
+     <body>
+      <h1>Product</h1>
+      <h1>Product ID:  <%=request.product._id %></h1>
+         <% console.log(request.product)%>
+      <h2>title:<%=request.product.title %></h2>
+     <h2>Name: <%=request.product.name %></h2>
+      <h2>Description:  <%=request.product.description %></h2>
+       <h2>Price:  <%=request.product.price %></h2>
+      <h2>Quantity:  <%=request.product.quantity %></h2>
+         <p> <%= request.product.content %> </p>
+         <p> <%= request.product.created %> </p>
+     </body>
