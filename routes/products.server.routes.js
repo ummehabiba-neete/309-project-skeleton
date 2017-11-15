@@ -19,21 +19,17 @@ module.exports = function(app){
 	//.put(users.requiresLogin, products.update);
 	 
   //.delete(users.requiresLogin, products.delete);
-
-	app.route('/api/products/')
+ app.route('/api/products')
 	.get(products.list)
- 	.post(users.requiresLogin, products.create);
+	.post(users.requiresLogin, products.create);
 
-//	.put(users.requiresLogin, products.update);
-	 
- 
-		 app.route('/api/products/edit/:productId')
+  app.route('/api/products/:productId')
 	.get(products.read)
-		.put(users.requiresLogin, products.delete);
+  .delete(users.requiresLogin, products.delete);
 
-		 app.route('/api/products/edit/"productId')
+	app.route('/api/products/edit/:productId')
 	.get(products.read)
-		.put(users.requiresLogin, products.update);
+	.put(users.requiresLogin, products.update);
 
 app.param('productId', products.productByID);
 

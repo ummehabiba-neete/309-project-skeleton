@@ -33,14 +33,14 @@ exports.all = function(req, res) {
 };
 
  exports.edit = function(req, res) {
-	res.render('./../public/views/products/edit.ejs', {
+	res.render('./../public/views/product/edit.ejs', {
 		user: req.user || null,
 		request: req
 	});
 };
 
  exports.view = function(req, res) {
-	res.render('./../public/views/products/view.ejs', {
+	res.render('./../public/views/product/view.ejs', {
 		user: req.user || null,
 		request: req
 	});

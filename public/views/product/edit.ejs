@@ -1,11 +1,73 @@
-<html>
+ <html>
     <head>
         
-        <title>all products edited</title>
+        <title> all products editted</title>
     </head>
     <body>
         
-        <h1>all products edited</h1>
+        <h1>all products editted</h1>
+        <div>Name:
+              <input type="text" id="name" value=<%=request.product.name%>/>
+        </div>
+      
+       <div>Description: 
+            <textarea id="description"><%=request.product.description%></textarea>
+       </div<br>>
+       <div>Price:
+              <input type="number" id="price" value=<%=request.product.price%>/>
+        </div>
+         <div>Quantity:
+              <input type="number" id="quantity" value=<%=request.product.quantity%>/>
+        </div>
+        <button id="submit">Submit</button>
+        
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+        var productId= <%- JSON.stringify(request.product._id) %>;
+        var product = {};
+        
+        var product={name: "",description: ""};
+        $("#name").change(function()
+        {
+        product.name=$("#name").val();
+        
+        });
+        $("#description").change(function()
+        {
+        product.description=$("#description").val();
+        
+        });
+        $("#price").change(function()
+        {
+        product.price=$("#price").val();
+        
+        });
+         $("#quantity").change(function()
+        {
+        product. quantity=$("#quantity").val();
+        
+        });
+        $("#submit").click(function(){
+            console.log("test");
+        $.ajax({
+        method: "PUT",
+        url: "/api/products/edit/"+productId,data:product},
+        data: product
+        
+        ).done(function(response){
+        
+        console.log(response);
+        
+        window.location.replace("/products/"+response._id);
+        
+        
+        }).fail(function(response)){
+            
+        $("#error").text(JSON.parse(response.responseText).message);
+        console.log(JSON.parse(response.responseText).message);
+        
+        });
+        </script>
         
     </body>
     
